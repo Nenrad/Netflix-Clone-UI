@@ -93,23 +93,4 @@ main {
   bottom: 200px;
 }
 
-.movies {
-  white-space: nowrap;
-}
-
-.card {
-  width: 260px;
-  height: 146px;
-  object-fit: cover;
-  margin: 0 10px;
-  transition: transform 250ms ease-in;
-  z-index: 100;
-}
-
-.card:hover {
-  transform: scale(120%);
-}
-
-#main {
-  overflow: shown;
-}
+/* movies */
