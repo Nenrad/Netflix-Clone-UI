@@ -85,6 +85,8 @@ main {
   font-family: "Open Sans", sans-serif;
   font-size: 60%;
   color: white;
+  position: absolute;
+  transform: translateY(-150px);
 }
 
 .title-show-logo {
@@ -94,3 +96,17 @@ main {
 }
 
 /* movies */
+
+.track {
+  display: flex;
+  height: 250px;
+}
+
+.track img {
+  margin: 0 10px;
+  transition: transform 150ms ease-in-out;
+}
+
+.track img:hover {
+  transform: scale(115%);
+}

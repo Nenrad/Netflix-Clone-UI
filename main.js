@@ -4,29 +4,9 @@ import {
   generateURLForPopularMovies,
   generateImageEndpoint,
   getData,
+  getGenres,
+  genres,
 } from "./FetchData.js";
-
-const genres = [
-  "Action",
-  "Adventure",
-  "Animation",
-  "Comedy",
-  "Crime",
-  "Documentary",
-  "Drama",
-  "Family",
-  "Fantasy",
-  "History",
-  "Horror",
-  "Music",
-  "Mystery",
-  "Romance",
-  "Science-Fiction",
-  "TV-Movie",
-  "Thriller",
-  "War",
-  "Western",
-];
 
 const setHTML = (genre) => {
   const carouselContainer = document.createElement("div");
@@ -48,6 +28,7 @@ const setHTML = (genre) => {
 // function to add images and sources
 const addImages = (url, genreRow) => {
   getData(url).then((data) => {
+    console.log(data.results);
     for (let el in data.results) {
       const card = document.createElement("img");
       const track = genreRow.querySelector(".track");
@@ -58,12 +39,12 @@ const addImages = (url, genreRow) => {
 };
 
 const renderContent = (genre) => {
-  const genreRow = document.querySelector(`#${genre}-carouselContainer`);
-  const url = generateURLFromGenre(genre);
+  const genreRow = document.querySelector(`#${genre.name}-carouselContainer`);
+  const url = generateURLFromGenre(genre.id);
   addImages(url, genreRow);
 };
 
 for (let i = 0; i < genres.length; i++) {
-  setHTML(genres[i]);
+  setHTML(genres[i].name);
   renderContent(genres[i]);
 }
