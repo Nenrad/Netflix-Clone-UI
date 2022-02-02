@@ -11,7 +11,11 @@ import {
 const setHTML = (genre) => {
   const carouselContainer = document.createElement("div");
   carouselContainer.classList.add("carouselContainer");
-  carouselContainer.setAttribute("id", `${genre}-carouselContainer`);
+  carouselContainer.setAttribute(
+    "id",
+    `${genre.replace(/' '/g, "-")}-carouselContainer`
+  );
+  console.log(genre.replace(/' '/g, "-"));
   const main = document.querySelector("#main");
   main.appendChild(carouselContainer);
 
@@ -39,7 +43,9 @@ const addImages = (url, genreRow) => {
 };
 
 const renderContent = (genre) => {
-  const genreRow = document.querySelector(`#${genre.name}-carouselContainer`);
+  const genreRow = document.querySelector(
+    `#${genre.name.replace(/ /g, "-")}-carouselContainer`
+  );
   const url = generateURLFromGenre(genre.id);
   addImages(url, genreRow);
 };
